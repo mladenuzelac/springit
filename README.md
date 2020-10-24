@@ -63,4 +63,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Thanks your PurpleBooth for the [README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2#file-readme-template-md)
+* Thanks your PurpleBooth for the [README template](https://github.com/PurpleBooth/a-good-readme-template/blob/main/README.md)

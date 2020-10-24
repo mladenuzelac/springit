@@ -6,26 +6,34 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.SpringProperties;
+
+import java.util.Arrays;
 
 @SpringBootApplication
 @EnableConfigurationProperties(SpringItProperties.class)
 public class SpringitApplication {
 
     @Autowired
-    private SpringItProperties springItProperties;
+    private ApplicationContext applicationContext;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringitApplication.class, args);
     }
 
     @Bean
-    @Profile("dev")
     CommandLineRunner runner() {
         return args -> {
-            System.out.println("This is something that we would only do in dev");
+            System.out.println("Printing out all the bean names in the application context.");
+            System.out.println("------------------------------------------------------------");
+            String[] beans = applicationContext.getBeanDefinitionNames();
+            Arrays.sort(beans);
+            for (String bean: beans) {
+                System.out.println(bean);
+            }
         };
     }
 }
